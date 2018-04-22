@@ -7,13 +7,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">XDA</a>
+      <a class="navbar-brand" [routerLink]="['/home']">XDA</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul *ngIf="loggedIn()" class="nav navbar-nav">
-        <li><a href="">Matches</a></li>
-        <li><a href="">Lists</a></li>
-        <li><a href="">Messages</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/members']">Matches</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/lists']" >Lists</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/messages']" >Messages</a></li>
       </ul>
 
       <form *ngIf="!loggedIn()" #loginForm ="ngForm" (ngSubmit)="login()" class="navbar-form navbar-right">
@@ -28,7 +28,7 @@
 
       <ul *ngIf="loggedIn()" class="nav navbar-nav navbar-right">
           <li class="dropdown" dropdown>
-            <a href="#" class="dropdown-toggle" dropdownToggle >Welcome {{auth.decodedToken?.unique_name | titlecase}}<span class="caret"></span></a>
+            <a class="dropdown-toggle" dropdownToggle >Welcome {{auth.decodedToken?.unique_name | titlecase}}<span class="caret"></span></a>
             <ul class="dropdown-menu" *dropdownMenu>
               <li><a href="#"><i class="fa fa-user"></i> Edit Profile</a></li>
               <li role="separator" class="divider"></li>
